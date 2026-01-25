@@ -19,6 +19,7 @@ packages = [{include="mojo", from="source/packages"}]
 python = ">=3.10,<4.0"
 automojo-interop = { git = "https://github.com/automationmojo/automojo-interop.git", branch = "main" }
 automojo-landscaping = { git = "https://github.com/automationmojo/automojo-landscaping.git", branch = "main" }
+bumble = "^0.0.223"
 
 
 [tool.poetry.group.dev.dependencies]
