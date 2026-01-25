@@ -1,6 +1,6 @@
-=======================
-python-package-template
-=======================
+========================================================================
+Automation Mojo 'Bluetooth' Interop Extension - automojo-interop-ext-can
+========================================================================
 This is a template repository that can be used to quickly create a python package project.
 
 =========================
