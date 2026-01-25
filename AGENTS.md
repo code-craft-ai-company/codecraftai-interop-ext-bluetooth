@@ -8,6 +8,8 @@ AI Agents working in this repository should refer to themselves as an agent name
 - Files inside the .venv folder should not be modified, they are modified by the setup scripts
 
 # Project Overview
+This project contains the code for the 'automojo-interop-ext-bluetooth' package.  This package provides bluetooth protocol interop extensions and landscape extensions that
+allow for interoperability with CAN buss devices during automation runs.
 
 # Testing Conventions
 Use this section to describe the test framework that should be used for testing code in this repository.  You can instruct the Agent on how to write tests for this repository by using the
