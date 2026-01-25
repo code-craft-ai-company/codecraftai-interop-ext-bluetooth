@@ -1,50 +1,44 @@
-========================================================================
-Automation Mojo 'Bluetooth' Interop Extension - automojo-interop-ext-can
-========================================================================
-This is a template repository that can be used to quickly create a python package project.
+====================================================================
+Automation Mojo Bluetooth Interop Extension (automojo-interop-ext-bluetooth)
+====================================================================
+This repository contains the Automation Mojo interop extension for Bluetooth. It
+provides the project scaffolding and package layout used to implement Bluetooth
+interop capabilities that integrate with the broader Automation Mojo ecosystem.
 
-=========================
-Features of this Template
-=========================
-* Machine Setup
-* Virtual Environment Setup (Poetry)
-* PyPi Publishing
+========
+Overview
+========
+* Python package for Automation Mojo Bluetooth interoperability extensions.
+* Source code lives under ``source/packages``.
+* Tooling and conventions are documented in the ``userguide`` directory.
 
-========================
-How to Use This Template
-========================
-- Click the 'Use this template' button
-- Fill in the information to create your repository
-- Checkout your new repository
-- Change the following in 'repository-config.ini'
+====================
+Development Workflow
+====================
+1. Run the repository homing script to generate the local ``.env`` file::
 
-  #. 'PROJECT NAME'
-  #. 'REPOSITORY_NAME'
+       ./repository-setup/rehome-repository
 
-- If you have machine dependencies to add, put them in 'setup-ubuntu-machine'
-- Modify the pyproject.toml file with the correct package-name, author, publishing information, etc.
-- Rename the VSCODE workspace file 'mv workspaces/default-workspace.template workspaces/(project name).template'
-- Replace the README.rst file with your own README
-- Update the LICENSE.txt file with your copyright information and license.
-- Add your dependencies with python poetry 'poetry add (dependency name)'
-- Drop your package code in 'source/packages'
-- Modify the name of your package root in 'pyproject.toml'
+2. Create the virtual environment for the repository::
 
-  #. 'packages = [{include="(root folder name)", from="source/packages"}]'
+       ./development/setup-environment
+
+3. Install dependencies with Poetry::
+
+       poetry install
 
 =================
 Code Organization
 =================
-* .vscode - Common tasks
-* development - This is where the runtime environment scripts are located
-* repository-setup - Scripts for homing your repository and to your checkout and machine setup
-* userguide - Where you put your user guide
-* source/packages - Put your root folder here 'source/packages/(root-module-folder)'
-* workspaces - This is where you add VSCode workspaces templates and where workspaces show up when homed.
+* ``development`` - Environment setup scripts for developers.
+* ``repository-setup`` - Repository homing and machine setup scripts.
+* ``source/packages`` - Package source roots.
+* ``userguide`` - Coding standards, naming conventions, and testing guidance.
 
 ==========
 References
 ==========
-
-- `User Guide <userguide/userguide.rst>`
-- `Coding Standards <userguide/10-00-coding-standards.rst>`
+- `User Guide <userguide/userguide.rst>`_
+- `Coding Standards <userguide/10-00-coding-standards.rst>`_
+- `Naming Conventions <userguide/10-02-naming-conventions.rst>`_
+- `Testing Frameworks <userguide/10-04-testing-frameworks.rst>`_
