@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "<package name>"
-description = "<package description>"
+name = "automojo-interop-ext-bluetooth"
+description = "Automation Mojo Interop Extension for Bluetooth"
 version = "0.0.1"
 authors = []
 readme = "README.rst"
@@ -17,6 +17,9 @@ packages = [{include="mojo", from="source/packages"}]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<4.0"
+automojo-interop = { git = "https://github.com/automationmojo/automojo-interop.git", branch = "main" }
+automojo-landscaping = { git = "https://github.com/automationmojo/automojo-landscaping.git", branch = "main" }
+
 
 [tool.poetry.group.dev.dependencies]
 
