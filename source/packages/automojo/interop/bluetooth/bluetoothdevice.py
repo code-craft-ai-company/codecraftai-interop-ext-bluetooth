@@ -1,5 +1,7 @@
 import logging
-from .coordinator import BluetoothCoordinator
+from typing import Optional
+from .bluetoothcoordinator import BluetoothCoordinator
+from .deviceevidence import BluetoothDeviceEvidence
 
 logger = logging.getLogger(__name__)
 
@@ -11,6 +13,17 @@ class BluetoothDevice:
         self.address = address
         self.coordinator = coordinator
         self.connection = None
+        self._evidence: Optional[BluetoothDeviceEvidence] = None
+
+    @property
+    def evidence(self) -> Optional[BluetoothDeviceEvidence]:
+        return self._evidence
+
+    def update_evidence(self, evidence: BluetoothDeviceEvidence):
+        """
+        Updates the key evidence for the device (RSSI, name, etc.)
+        """
+        self._evidence = evidence
 
     async def connect(self):
         """

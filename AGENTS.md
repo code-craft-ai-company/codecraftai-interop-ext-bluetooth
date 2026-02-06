@@ -5,6 +5,7 @@ AI Agents working in this repository should refer to themselves as an agent name
 - Look in the '<repository>/specs' folder for specification files that help to steer development work
 - Look in the '<repository>/userguide' folder for files containing standards and conventions
 - Look in the '<repository>/prompts' folder for pre-build prompts
+- Use the '<repository>/source/examples' folder for example, debug and test scripts
 - Files inside the .venv folder should not be modified, they are modified by the setup scripts
 
 # Project Overview
