@@ -1,6 +1,5 @@
 
 import logging
-import asyncio
 import threading
 import uuid
 import weakref
@@ -17,16 +16,14 @@ logger = logging.getLogger(__name__)
 
 class BluetoothPresence:
     """
-    Manages Bluetooth presence and discovery using a background asyncio loop for Bumble interactions,
-    providing a synchronous API similar to UpnpPresence.
+    Manages Bluetooth presence and discovery using a background thread (via Coordinator)
+    and provides a synchronous, thread-safe API.
     """
     def __init__(self, coordinator: BluetoothCoordinator):
         self._coordinator = coordinator
         self._lock = threading.Lock()
         
         self._running = False
-        self._loop_thread = None
-        self._loop = None
         
         # Data storage
         self._discovered_devices: Dict[str, BluetoothDevice] = {} # Persistent cache
@@ -43,28 +40,29 @@ class BluetoothPresence:
 
     def start(self):
         """
-        Starts the Bluetooth presence manager background thread.
+        Starts the Bluetooth presence manager.
         """
         with self._lock:
             if self._running:
                 return
             
             self._running = True
-            self._loop = asyncio.new_event_loop()
-            self._loop_thread = threading.Thread(target=self._run_async_loop, args=(self._loop,), daemon=True, name="am-bt-presence-loop")
-            self._loop_thread.start()
             
-            # Initialize coordinator in the loop
-            future = asyncio.run_coroutine_threadsafe(self._coordinator.startup(), self._loop)
+            # Initialize coordinator
             try:
-                future.result(timeout=10)
+                self._coordinator.startup()
             except Exception as e:
                 logger.error(f"Failed to start Bluetooth coordinator: {e}")
-                self.stop()
+                self._running = False
                 raise
             
             # Start continuous scanning
-            asyncio.run_coroutine_threadsafe(self._start_scanning_internal(), self._loop)
+            # We need to register the callback.
+            # Ideally this should be done safely on the loop.
+            # Using submit_coroutine to register callback is tricky because 'on' is not async usually.
+            # However, Bumble 'on' just appends to a list.
+            # We can define a coroutine to register it to be safe.
+            self._coordinator.submit_coroutine(self._register_callback_and_scan())
 
 
     def stop(self):
@@ -76,48 +74,30 @@ class BluetoothPresence:
                 return
             self._running = False
         
-        if self._loop and self._loop.is_running():
-            future = asyncio.run_coroutine_threadsafe(self._coordinator.shutdown(), self._loop)
-            try:
-                future.result(timeout=5.0)
-            except Exception as e:
-                logger.warning(f"Error during Bluetooth coordinator shutdown: {e}")
+        try:
+            self._coordinator.stop_scanning()
+            self._coordinator.shutdown()
+        except Exception as e:
+            logger.warning(f"Error stopping coordinator: {e}")
 
-            self._loop.call_soon_threadsafe(self._loop.stop)
 
-        if self._loop_thread is not None and self._loop_thread.is_alive():
-            self._loop_thread.join(timeout=2.0)
-            if self._loop_thread.is_alive():
-                logger.warning("Bluetooth presence loop thread did not exit cleanly.")
-
-        self._loop = None
-        self._loop_thread = None
-
-    def _run_async_loop(self, loop):
-        asyncio.set_event_loop(loop)
-        loop.run_forever()
-
-    async def _start_scanning_internal(self):
+    async def _register_callback_and_scan(self):
         # Setup callback
         if hasattr(self._coordinator.device, 'on'):
              self._coordinator.device.on('advertisement', self._on_advertisement)
         
-        # We start scanning. BluetoothCoordinator currently defaults to LE.
-        # If we wanted to support Classic, we'd need to modify how Bumble is configured or called.
-        # This implementation assumes the Coordinator handles the details of 'start_scanning'.
-        await self._coordinator.start_scanning()
+        await self._coordinator._async_start_scanning()
 
     def _on_advertisement(self, entry):
         """
         Callback from Bumble when an advertisement is received.
-        Executed in the asyncio loop thread.
+        Executed in the coordinator's loop thread.
         """
         try:
             address = str(entry.address)
             rssi = getattr(entry, 'rssi', 0)
             
             # Extract basic info from entry if possible
-            # Bumble AdvertisingData parsing is complex, doing basic extraction
             name = None
             service_uuids = []
             
@@ -125,7 +105,6 @@ class BluetoothPresence:
                 # Try to get local name
                 name = entry.data.get_local_name() if hasattr(entry.data, 'get_local_name') else None
                 # Try to get service UUIDs
-                # Bumble's AdvertisingData might expose them via a method or property
                 valid_uuids = entry.data.service_uuids if hasattr(entry.data, 'service_uuids') else []
                 service_uuids = [str(u) for u in valid_uuids]
             

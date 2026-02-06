@@ -25,35 +25,42 @@ class BluetoothDevice:
         """
         self._evidence = evidence
 
-    async def connect(self):
+    def connect(self):
         """
         Connects to the device.
         """
         logger.info(f"Connecting to device {self.address}")
-        if not self.coordinator.device:
-             raise RuntimeError("Coordinator not initialized. Call startup() on coordinator first.")
-
-        # self.coordinator.device.connect usually returns a Connection object
-        self.connection = await self.coordinator.device.connect(self.address)
+        # Execute the connection on the coordinator's loop
+        self.connection = self.coordinator.submit_coroutine(self._async_connect())
         logger.info(f"Connected to {self.address}")
         return self.connection
 
-    async def disconnect(self):
+    async def _async_connect(self):
+        if not self.coordinator.device:
+             raise RuntimeError("Coordinator not initialized. Call startup() on coordinator first.")
+        return await self.coordinator.device.connect(self.address)
+
+    def disconnect(self):
         """
         Disconnects from the device.
         """
         if self.connection:
             logger.info(f"Disconnecting from {self.address}")
-            await self.connection.disconnect()
+            self.coordinator.submit_coroutine(self._async_disconnect())
             self.connection = None
 
-    async def pair(self):
+    async def _async_disconnect(self):
+        if self.connection:
+            await self.connection.disconnect()
+
+    def pair(self):
         """
         Pairs with the device.
         """
-        if not self.connection:
-            await self.connect()
-
         logger.info(f"Pairing with {self.address}")
-        # Assuming Connection object has pair() method or similar in Bumble
+        self.coordinator.submit_coroutine(self._async_pair())
+
+    async def _async_pair(self):
+        if not self.connection:
+            await self._async_connect()
         await self.connection.pair()
