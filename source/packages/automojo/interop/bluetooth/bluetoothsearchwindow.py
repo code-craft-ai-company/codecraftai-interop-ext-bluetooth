@@ -136,6 +136,12 @@ class BluetoothSearchWindow:
         with self._lock:
             return self._window_state == BluetoothSearchWindowState.ACTIVE
 
+    def is_open(self) -> bool:
+        """
+            Check if the search window is open (INACTIVE or ACTIVE).
+        """
+        with self._lock:
+            return self._window_state in (BluetoothSearchWindowState.INACTIVE, BluetoothSearchWindowState.ACTIVE)
 
     def start(self):
         """
