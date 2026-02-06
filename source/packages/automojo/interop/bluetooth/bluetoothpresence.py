@@ -145,7 +145,7 @@ class BluetoothPresence:
                         del self._search_windows[wid]
                         continue
                     
-                    if window.is_active():
+                    if window.is_open():
                         windows_to_notify.append(window)
 
             # Notify windows
