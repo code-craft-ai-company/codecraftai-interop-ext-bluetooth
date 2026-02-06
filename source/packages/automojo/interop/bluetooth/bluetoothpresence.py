@@ -77,10 +77,21 @@ class BluetoothPresence:
             self._running = False
         
         if self._loop and self._loop.is_running():
-            asyncio.run_coroutine_threadsafe(self._coordinator.shutdown(), self._loop)
-            # We don't forcefully close the loop/thread here to avoid issues with pending tasks,
-            # but in a real system we might want a cleaner shutdown signal.
-            pass
+            future = asyncio.run_coroutine_threadsafe(self._coordinator.shutdown(), self._loop)
+            try:
+                future.result(timeout=5.0)
+            except Exception as e:
+                logger.warning(f"Error during Bluetooth coordinator shutdown: {e}")
+
+            self._loop.call_soon_threadsafe(self._loop.stop)
+
+        if self._loop_thread is not None and self._loop_thread.is_alive():
+            self._loop_thread.join(timeout=2.0)
+            if self._loop_thread.is_alive():
+                logger.warning("Bluetooth presence loop thread did not exit cleanly.")
+
+        self._loop = None
+        self._loop_thread = None
 
     def _run_async_loop(self, loop):
         asyncio.set_event_loop(loop)
