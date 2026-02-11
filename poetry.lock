@@ -273,7 +273,7 @@ automojo-this-app = {git = "https://github.com/automationmojo/automojo-this-app.
 type = "git"
 url = "https://github.com/automationmojo/automojo-credentials.git"
 reference = "main"
-resolved_reference = "9e9eee4c605707bc8c60f524519cd15eb33a1609"
+resolved_reference = "6570610f183a807afffa16ab9f043d833d716db2"
 
 [[package]]
 name = "automojo-dataprofiles"
@@ -295,7 +295,7 @@ automojo-this-app = {git = "https://github.com/automationmojo/automojo-this-app.
 type = "git"
 url = "https://github.com/automationmojo/automojo-dataprofiles.git"
 reference = "main"
-resolved_reference = "5daeab67d9908ca55768be96419a924e9c86a82d"
+resolved_reference = "bcc1ba897cd3f8473199fcb5d7216699606a8cf9"
 
 [[package]]
 name = "automojo-errors"
@@ -372,7 +372,7 @@ rpyc = "^6.0.1"
 type = "git"
 url = "https://github.com/automationmojo/automojo-interop.git"
 reference = "main"
-resolved_reference = "ae0b707244319e40726fcae3bba0e378190c0cf1"
+resolved_reference = "6db4a9591dc4364fbce01933152cfac7d9b35e22"
 
 [[package]]
 name = "automojo-landscaping"
@@ -398,7 +398,7 @@ automojo-waiting = {git = "https://github.com/automationmojo/automojo-waiting.gi
 type = "git"
 url = "https://github.com/automationmojo/automojo-landscaping.git"
 reference = "main"
-resolved_reference = "d500083b94d1610a181a3a74e0cb3c9054f6133b"
+resolved_reference = "d970a55215c93091bade7c88592906c3059724e5"
 
 [[package]]
 name = "automojo-networking"
@@ -442,7 +442,7 @@ requests = "^2.32.5"
 type = "git"
 url = "https://github.com/automationmojo/automojo-restclient-base.git"
 reference = "main"
-resolved_reference = "5ebf1b5677abf726bc3ac91afb761482fef7fed3"
+resolved_reference = "7d148ca99d76109ec0fd9ab03a084c6f71953dfe"
 
 [[package]]
 name = "automojo-runtime"
@@ -487,13 +487,12 @@ automojo-runtime = {git = "https://github.com/automationmojo/automojo-runtime.gi
 automojo-this-app = {git = "https://github.com/automationmojo/automojo-this-app.git", branch = "main"}
 automojo-waiting = {git = "https://github.com/automationmojo/automojo-waiting.git", branch = "main"}
 automojo-xmodules = {git = "https://github.com/automationmojo/automojo-xmodules.git", branch = "main"}
-click = "^8.1.8"
 
 [package.source]
 type = "git"
 url = "https://github.com/automationmojo/automojo-testbase.git"
 reference = "main"
-resolved_reference = "2f0fe0d6a4398670a153fdee792ed90d85862bc2"
+resolved_reference = "5a175256aa5481d6839c3af96ede2a6273ee8eac"
 
 [[package]]
 name = "automojo-this-app"
