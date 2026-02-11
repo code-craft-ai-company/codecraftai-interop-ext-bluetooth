@@ -208,6 +208,25 @@ files = [
 ]
 
 [[package]]
+name = "automojo-arcli"
+version = "0.0.1"
+description = "automojo-arcli"
+category = "main"
+optional = false
+python-versions = ">=3.10,<4.0"
+files = []
+develop = false
+
+[package.dependencies]
+automojo-errors = {git = "https://github.com/automationmojo/automojo-errors.git", rev = "main"}
+
+[package.source]
+type = "git"
+url = "https://github.com/automationmojo/automojo-arcli.git"
+reference = "main"
+resolved_reference = "2b63c7263d5b5379a0682e3e6ed24b9b86d8f7d9"
+
+[[package]]
 name = "automojo-configuration"
 version = "0.0.1"
 description = "Automation Mojo - Configuration"
@@ -254,7 +273,7 @@ automojo-this-app = {git = "https://github.com/automationmojo/automojo-this-app.
 type = "git"
 url = "https://github.com/automationmojo/automojo-credentials.git"
 reference = "main"
-resolved_reference = "67fbbf368c49dd336464993d2360bd31609dbfc5"
+resolved_reference = "9e9eee4c605707bc8c60f524519cd15eb33a1609"
 
 [[package]]
 name = "automojo-dataprofiles"
@@ -276,7 +295,7 @@ automojo-this-app = {git = "https://github.com/automationmojo/automojo-this-app.
 type = "git"
 url = "https://github.com/automationmojo/automojo-dataprofiles.git"
 reference = "main"
-resolved_reference = "3cad5c4417455609a3780cae9d161e9542aed196"
+resolved_reference = "5daeab67d9908ca55768be96419a924e9c86a82d"
 
 [[package]]
 name = "automojo-errors"
@@ -353,7 +372,7 @@ rpyc = "^6.0.1"
 type = "git"
 url = "https://github.com/automationmojo/automojo-interop.git"
 reference = "main"
-resolved_reference = "02c4495052bc0c6ba3b8b2e3394a2ff321c82efc"
+resolved_reference = "ae0b707244319e40726fcae3bba0e378190c0cf1"
 
 [[package]]
 name = "automojo-landscaping"
@@ -379,7 +398,7 @@ automojo-waiting = {git = "https://github.com/automationmojo/automojo-waiting.gi
 type = "git"
 url = "https://github.com/automationmojo/automojo-landscaping.git"
 reference = "main"
-resolved_reference = "20d231c499f8699120e97238ec9f96a23b7d5e21"
+resolved_reference = "d500083b94d1610a181a3a74e0cb3c9054f6133b"
 
 [[package]]
 name = "automojo-networking"
@@ -423,7 +442,7 @@ requests = "^2.32.5"
 type = "git"
 url = "https://github.com/automationmojo/automojo-restclient-base.git"
 reference = "main"
-resolved_reference = "bbce5a42eee2f7ebe74414a94b512e4209991f68"
+resolved_reference = "5ebf1b5677abf726bc3ac91afb761482fef7fed3"
 
 [[package]]
 name = "automojo-runtime"
@@ -460,6 +479,7 @@ files = []
 develop = false
 
 [package.dependencies]
+automojo-arcli = {git = "https://github.com/automationmojo/automojo-arcli.git", branch = "main"}
 automojo-configuration = {git = "https://github.com/automationmojo/automojo-configuration.git", branch = "main"}
 automojo-errors = {git = "https://github.com/automationmojo/automojo-errors.git", branch = "main"}
 automojo-interfaces = {git = "https://github.com/automationmojo/automojo-interfaces.git", branch = "main"}
@@ -473,7 +493,7 @@ click = "^8.1.8"
 type = "git"
 url = "https://github.com/automationmojo/automojo-testbase.git"
 reference = "main"
-resolved_reference = "0968e5e4c46d55ef46c9f8da50e3d8b29fc4a2dd"
+resolved_reference = "2f0fe0d6a4398670a153fdee792ed90d85862bc2"
 
 [[package]]
 name = "automojo-this-app"
