@@ -368,7 +368,7 @@ rpyc = "^6.0.1"
 type = "git"
 url = "https://github.com/automationmojo/automojo-interop.git"
 reference = "main"
-resolved_reference = "7c2ca56a358dca73e0b1f57cacffee0e8d553f01"
+resolved_reference = "9bad58b510c5274deb9ac52b866a6768be0ea834"
 
 [[package]]
 name = "automojo-landscaping"
@@ -394,7 +394,7 @@ automojo-waiting = {git = "https://github.com/automationmojo/automojo-waiting.gi
 type = "git"
 url = "https://github.com/automationmojo/automojo-landscaping.git"
 reference = "main"
-resolved_reference = "eb0e0847c31d60d73437582ea3ac5bc3f12c41d0"
+resolved_reference = "b65232eef9d21c594fb7f020f9d718525ae7fb84"
 
 [[package]]
 name = "automojo-networking"
@@ -438,7 +438,7 @@ requests = "^2.32.5"
 type = "git"
 url = "https://github.com/automationmojo/automojo-restclient-base.git"
 reference = "main"
-resolved_reference = "38a340e32568bf346f8f7fdd73de15ba8e2f0cfe"
+resolved_reference = "58099c70ff7440f9c87c49ad7cc0f26f49d725e4"
 
 [[package]]
 name = "automojo-runtime"
@@ -488,7 +488,7 @@ automojo-xmodules = {git = "https://github.com/automationmojo/automojo-xmodules.
 type = "git"
 url = "https://github.com/automationmojo/automojo-testbase.git"
 reference = "main"
-resolved_reference = "f824872e5de35e91e7be9a069b657e6804e9ed3e"
+resolved_reference = "5b62613d0942c49e1bdb987765f0dad9d7c6a5cd"
 
 [[package]]
 name = "automojo-this-app"
