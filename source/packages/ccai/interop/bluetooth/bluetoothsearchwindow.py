@@ -8,7 +8,7 @@
 """
 
 __author__ = "Myron Walker"
-__copyright__ = "Copyright 2025, Automation Mojo LLC"
+__copyright__ = "Copyright 2025, Code Craft AI LLC"
 __credits__ = []
 
 
@@ -27,8 +27,8 @@ from datetime import datetime
 # Make sure the BluetoothPresence object has a way to scan for BLE devices and Bluetooth classic"
 
 if TYPE_CHECKING:
-    from automojo.interop.bluetooth.bluetoothpresence import BluetoothPresence
-    from automojo.interop.bluetooth.bluetoothdevice import BluetoothDevice
+    from ccai.interop.bluetooth.bluetoothpresence import BluetoothPresence
+    from ccai.interop.bluetooth.bluetoothdevice import BluetoothDevice
 
 
 class BluetoothSearchWindowState:

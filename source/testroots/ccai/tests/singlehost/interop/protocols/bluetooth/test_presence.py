@@ -2,8 +2,8 @@
 import time
 from unittest.mock import MagicMock, AsyncMock
 
-from automojo.interop.bluetooth.bluetoothpresence import BluetoothPresence
-from automojo.interop.bluetooth.bluetoothdevice import BluetoothDevice
+from ccai.interop.bluetooth.bluetoothpresence import BluetoothPresence
+from ccai.interop.bluetooth.bluetoothdevice import BluetoothDevice
 
 def test_bluetooth_presence_discovery():
     """

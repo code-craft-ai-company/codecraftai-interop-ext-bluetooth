@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "automojo-interop-ext-bluetooth"
-description = "Automation Mojo Interop Extension for Bluetooth"
+name = "codecraftai-interop-ext-bluetooth"
+description = "Code Craft AI Interop Extension for Bluetooth"
 version = "0.0.1"
 authors = []
 readme = "README.rst"
@@ -13,12 +13,12 @@ classifiers = [
 keywords = [
     "python"
 ]
-packages = [{include="automojo", from="source/packages"}]
+packages = [{include="ccai", from="source/packages"}]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<4.0"
-automojo-interop = { git = "https://github.com/automationmojo/automojo-interop.git", branch = "main" }
-automojo-landscaping = { git = "https://github.com/automationmojo/automojo-landscaping.git", branch = "main" }
+codecraftai-interop = { git = "https://github.com/automationmojo/codecraftai-interop.git", branch = "main" }
+codecraftai-landscaping = { git = "https://github.com/automationmojo/codecraftai-landscaping.git", branch = "main" }
 bumble = "^0.0.223"
 
 
