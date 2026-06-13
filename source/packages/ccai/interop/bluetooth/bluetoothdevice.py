@@ -62,5 +62,8 @@ class BluetoothDevice:
 
     async def _async_pair(self):
         if not self.connection:
-            await self._async_connect()
+            # Capture the connection: _async_connect() returns it but does not
+            # assign self.connection (only the sync connect() wrapper does), so
+            # without this the pair() call below dereferences None.
+            self.connection = await self._async_connect()
         await self.connection.pair()

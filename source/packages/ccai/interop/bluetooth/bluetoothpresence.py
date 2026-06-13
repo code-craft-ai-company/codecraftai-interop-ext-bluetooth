@@ -3,7 +3,6 @@ import logging
 import threading
 import uuid
 import weakref
-import copy
 from typing import Dict, List, Optional
 from datetime import datetime, timedelta
 
@@ -35,8 +34,13 @@ class BluetoothPresence:
         
     @property
     def discovered_devices(self) -> Dict[str, BluetoothDevice]:
+        # Return a shallow copy of the mapping. The BluetoothDevice values are
+        # live shared handles -- each holds the coordinator's asyncio loop, a
+        # thread, and a lock -- so they must NOT be deep-copied (deepcopy raises
+        # TypeError trying to pickle the event loop's context).
         with self._lock:
-            return copy.deepcopy(self._discovered_devices)
+            devices = dict(self._discovered_devices)
+        return devices
 
     def start(self):
         """
