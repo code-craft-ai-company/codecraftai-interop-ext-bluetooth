@@ -95,13 +95,14 @@ class BluetoothCoordinator:
         name = self.device_config.get("name", "MojoBluetooth")
         address = self.device_config.get("address", "F0:F1:F2:F3:F4:F5")
 
-        self.device = Device(name=name, address=address)
-
-        # Open transport
+        # Open the transport first, then build the device wired to the
+        # transport's HCI source/sink. Device.with_hci constructs the Host
+        # internally; there is no separate attach/sink step in bumble.
         self.transport = await open_transport_or_link(self.transport_address)
 
-        self.device.attach_hci_sink(self.transport)
-        self.transport.set_packet_sink(self.device)
+        self.device = Device.with_hci(
+            name, address, self.transport.source, self.transport.sink
+        )
 
         await self.device.power_on()
 
