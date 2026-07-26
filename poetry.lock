@@ -774,7 +774,7 @@ rpyc = "^6.0.1"
 type = "git"
 url = "https://github.com/automationmojo/codecraftai-interop.git"
 reference = "main"
-resolved_reference = "1d05fc3467f76df00605158f7ce75551319ab55a"
+resolved_reference = "3e5c9e3d7083ceb129ca3d0626ce0ba940af4ab7"
 
 [[package]]
 name = "codecraftai-landscaping"
@@ -807,7 +807,7 @@ pyyaml = "^6.0.2"
 type = "git"
 url = "https://github.com/automationmojo/codecraftai-landscaping.git"
 reference = "main"
-resolved_reference = "1d39d38ba35fe6d627831433b04f8fbb7b3d8a89"
+resolved_reference = "ea84b04f5655ea2525e0f0099813e81d5e31ce13"
 
 [[package]]
 name = "codecraftai-networking"
