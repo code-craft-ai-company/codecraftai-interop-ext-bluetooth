@@ -593,7 +593,7 @@ pyyaml = "^6.0.2"
 type = "git"
 url = "https://github.com/automationmojo/codecraftai-arcli.git"
 reference = "main"
-resolved_reference = "a851c7466c42a0d8eaf9c514a34962af45d944d3"
+resolved_reference = "a78f75ba5c1e4d2d07c1c50e235cb815a9eb9e83"
 
 [[package]]
 name = "codecraftai-configuration"
@@ -623,7 +623,7 @@ pymongo = ["pymongo (>=4.13.2,<5.0.0)"]
 type = "git"
 url = "https://github.com/automationmojo/codecraftai-configuration.git"
 reference = "main"
-resolved_reference = "5f1c0f9c5092b9a8f3e37cb086391f3aa793b2d0"
+resolved_reference = "ca394260b024954220e09d7089053f356a412d4c"
 
 [[package]]
 name = "codecraftai-credentials"
@@ -642,7 +642,7 @@ codecraftai-errors = {git = "https://github.com/automationmojo/codecraftai-error
 type = "git"
 url = "https://github.com/automationmojo/codecraftai-credentials.git"
 reference = "main"
-resolved_reference = "72b2e1b570e7887a999d8038e894d5a561b89257"
+resolved_reference = "f15214cc3972b562d53f77bd15381782fee0f5c3"
 
 [[package]]
 name = "codecraftai-dataprofiles"
@@ -662,7 +662,7 @@ codecraftai-interfaces = {git = "https://github.com/automationmojo/codecraftai-i
 type = "git"
 url = "https://github.com/automationmojo/codecraftai-dataprofiles.git"
 reference = "main"
-resolved_reference = "612f77f71d8d73fd8af3cce025712a9443087ef1"
+resolved_reference = "197ad95509a56479668513971d5da91602ab85ae"
 
 [[package]]
 name = "codecraftai-errors"
@@ -678,7 +678,7 @@ develop = false
 type = "git"
 url = "https://github.com/automationmojo/codecraftai-errors.git"
 reference = "main"
-resolved_reference = "a3ee3ce854614330c11512af8c6078db5ecb0375"
+resolved_reference = "bbc01a9b9e7602c225ffab0716bc6e56b472e4b4"
 
 [[package]]
 name = "codecraftai-extension"
@@ -694,7 +694,7 @@ develop = false
 type = "git"
 url = "https://github.com/automationmojo/codecraftai-extension.git"
 reference = "main"
-resolved_reference = "a3c3b5df8af386d20871c15cfd2162a8673a0569"
+resolved_reference = "154a29978e55f7c0aedf19d65420ab705db876f7"
 
 [[package]]
 name = "codecraftai-integration-runtime"
@@ -721,7 +721,7 @@ websocket = ["websocket-client (>=1.8.0,<2.0.0)"]
 type = "git"
 url = "https://github.com/automationmojo/codecraftai-integration-runtime.git"
 reference = "main"
-resolved_reference = "3d0bfa2f37c898813bf0f88aaf0874768aa656aa"
+resolved_reference = "722752cffc3662a1061c6006dc163c9b396fcc17"
 
 [[package]]
 name = "codecraftai-interfaces"
@@ -740,7 +740,7 @@ codecraftai-errors = {git = "https://github.com/automationmojo/codecraftai-error
 type = "git"
 url = "https://github.com/automationmojo/codecraftai-interfaces.git"
 reference = "main"
-resolved_reference = "6e332363c9047647f57d14d327b7e015a2bb2b5f"
+resolved_reference = "4b86d4488e7a502c56947ff94f798a01a0fa829a"
 
 [[package]]
 name = "codecraftai-interop"
@@ -774,7 +774,7 @@ rpyc = "^6.0.1"
 type = "git"
 url = "https://github.com/automationmojo/codecraftai-interop.git"
 reference = "main"
-resolved_reference = "bf31dcd13c640e65292e6604d64cf054255bd02d"
+resolved_reference = "616cdaf5f32258710001c74dd0942aa7ebe02278"
 
 [[package]]
 name = "codecraftai-landscaping"
@@ -807,7 +807,7 @@ pyyaml = "^6.0.2"
 type = "git"
 url = "https://github.com/automationmojo/codecraftai-landscaping.git"
 reference = "main"
-resolved_reference = "27d2102d289096ddc2f9d259b3b24469f377dd2e"
+resolved_reference = "b162fdc16b4dc3d4c3552f335f202f67de704cbd"
 
 [[package]]
 name = "codecraftai-networking"
@@ -828,7 +828,7 @@ netifaces = "^0.11.0"
 type = "git"
 url = "https://github.com/automationmojo/codecraftai-networking.git"
 reference = "main"
-resolved_reference = "8d0b74ad7f74bdeecbd708785b1779dd4521865f"
+resolved_reference = "70211ceae99bed922c48189bc59bca38877d1e1b"
 
 [[package]]
 name = "codecraftai-restclient-base"
@@ -851,7 +851,7 @@ requests = "^2.32.5"
 type = "git"
 url = "https://github.com/automationmojo/codecraftai-restclient-base.git"
 reference = "main"
-resolved_reference = "83753ff0df35b09d3f5cb998ffe096e1c7be39a6"
+resolved_reference = "063a8d9b7333865a749b526b3b3eea5d01cf6a11"
 
 [[package]]
 name = "codecraftai-restclient-vsphere"
@@ -876,7 +876,7 @@ requests = "^2.32.5"
 type = "git"
 url = "https://github.com/automationmojo/codecraftai-restclient-vsphere.git"
 reference = "main"
-resolved_reference = "b24a84235f03182290ebfd9cc1cbed8cb7a2bd46"
+resolved_reference = "2aa426221ee7086f0f5b08c8065a3284687e9188"
 
 [[package]]
 name = "codecraftai-runtime"
@@ -895,7 +895,7 @@ codecraftai-this-app = {git = "https://github.com/automationmojo/codecraftai-thi
 type = "git"
 url = "https://github.com/automationmojo/codecraftai-runtime.git"
 reference = "main"
-resolved_reference = "f9b6b3b3f783b5db31df4fa28c39b267d6c37166"
+resolved_reference = "7371b4ad6c9aff0e51f9b1e176edecc61d2ccf1b"
 
 [[package]]
 name = "codecraftai-testbase"
@@ -909,7 +909,6 @@ develop = false
 
 [package.dependencies]
 codecraftai-arcli = {git = "https://github.com/automationmojo/codecraftai-arcli.git", branch = "main"}
-codecraftai-configuration = {git = "https://github.com/automationmojo/codecraftai-configuration.git", branch = "main"}
 codecraftai-errors = {git = "https://github.com/automationmojo/codecraftai-errors.git", branch = "main"}
 codecraftai-interfaces = {git = "https://github.com/automationmojo/codecraftai-interfaces.git", branch = "main"}
 codecraftai-runtime = {git = "https://github.com/automationmojo/codecraftai-runtime.git", branch = "main"}
@@ -922,7 +921,7 @@ pyyaml = "^6.0.2"
 type = "git"
 url = "https://github.com/automationmojo/codecraftai-testbase.git"
 reference = "main"
-resolved_reference = "e7a98b287998ed061fd3fd6b09655f7ee6446dc0"
+resolved_reference = "3781e78cca0f6251385743a205190bf01d5908f0"
 
 [[package]]
 name = "codecraftai-this-app"
@@ -943,7 +942,7 @@ codecraftai-xmodules = {git = "https://github.com/automationmojo/codecraftai-xmo
 type = "git"
 url = "https://github.com/automationmojo/codecraftai-this-app.git"
 reference = "main"
-resolved_reference = "8289c97049256dc92a1f8904ff51fedb966da3b1"
+resolved_reference = "9852466b74364db9d2caa2dd5db9dc3c6b22ec5d"
 
 [[package]]
 name = "codecraftai-waiting"
@@ -959,7 +958,7 @@ develop = false
 type = "git"
 url = "https://github.com/automationmojo/codecraftai-waiting.git"
 reference = "main"
-resolved_reference = "6d5aee59acd1831b4093bab7c4a87b4a9f9124d7"
+resolved_reference = "071b83b5ff6ce8cb8966aee7e6a2de97a6e926d1"
 
 [[package]]
 name = "codecraftai-xmodules"
@@ -980,7 +979,7 @@ debugpy = "^1.8.14"
 type = "git"
 url = "https://github.com/automationmojo/codecraftai-xmodules.git"
 reference = "main"
-resolved_reference = "f61677c85978f498664ce6b7ce5ed113964ffd6f"
+resolved_reference = "7c2935cf442e9e1747765f820d9ea811b85756c0"
 
 [[package]]
 name = "colorama"
@@ -1711,19 +1710,19 @@ tests = ["pytest (>=9)", "pytest-cov", "pytest-lazy-fixtures"]
 
 [[package]]
 name = "prompt-toolkit"
-version = "3.0.52"
+version = "3.0.53"
 description = "Library for building powerful interactive command lines in Python"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.10"
 groups = ["main"]
 markers = "platform_system != \"Emscripten\""
 files = [
-    {file = "prompt_toolkit-3.0.52-py3-none-any.whl", hash = "sha256:9aac639a3bbd33284347de5ad8d68ecc044b91a762dc39b7c21095fcd6a19955"},
-    {file = "prompt_toolkit-3.0.52.tar.gz", hash = "sha256:28cde192929c8e7321de85de1ddbe736f1375148b02f2e17edd840042b1be855"},
+    {file = "prompt_toolkit-3.0.53-py3-none-any.whl", hash = "sha256:01c0891d7f9237d5e339f7d3e42cdae80b7534abb1c7c0e3352efba6231492f2"},
+    {file = "prompt_toolkit-3.0.53.tar.gz", hash = "sha256:9ec8a0ad96d5c56148b3f914aa79c1564c3fde5d2e6b876e7bc327e353cf8fa6"},
 ]
 
 [package.dependencies]
-wcwidth = "*"
+wcwidth = ">=0.1.4"
 
 [[package]]
 name = "propcache"
