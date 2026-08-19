@@ -17,8 +17,8 @@ packages = [{include="ccai", from="source/packages"}]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<4.0"
-codecraftai-interop = { git = "https://github.com/automationmojo/codecraftai-interop.git", branch = "main" }
-codecraftai-landscaping = { git = "https://github.com/automationmojo/codecraftai-landscaping.git", branch = "main" }
+codecraftai-interop = { git = "https://github.com/code-craft-ai-company/codecraftai-interop.git", branch = "main" }
+codecraftai-landscaping = { git = "https://github.com/code-craft-ai-company/codecraftai-landscaping.git", branch = "main" }
 bumble = "^0.0.223"
 
 
