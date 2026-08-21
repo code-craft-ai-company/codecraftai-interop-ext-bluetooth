@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "codecraftai-interop-ext-bluetooth"
 description = "Code Craft AI Interop Extension for Bluetooth"
-version = "0.0.1"
+version = "1.0.0"
 authors = ["Myron Walker <myron.walker@gmail.com>"]
 readme = "README.rst"
 license = "LicenseRef-CodeCraftAI-Dual-License"
@@ -17,12 +17,18 @@ packages = [{include="ccai", from="source/packages"}]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<4.0"
-codecraftai-interop = { git = "https://github.com/code-craft-ai-company/codecraftai-interop.git", branch = "main" }
-codecraftai-landscaping = { git = "https://github.com/code-craft-ai-company/codecraftai-landscaping.git", branch = "main" }
+codecraftai-interop = { version = "<2.0.0", source = "codecraftai" }
+codecraftai-landscaping = { version = "<2.0.0", source = "codecraftai" }
 bumble = "^0.0.223"
 
 
 [tool.poetry.group.dev.dependencies]
+
+
+[[tool.poetry.source]]
+name = "codecraftai"
+url = "https://code-craft.ai/licensed-repository/simple/"
+priority = "supplemental"
 
 [build-system]
 requires = ["poetry-core"]
