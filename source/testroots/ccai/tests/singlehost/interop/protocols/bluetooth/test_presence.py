@@ -1,4 +1,5 @@
 
+import asyncio
 import time
 from unittest.mock import MagicMock, AsyncMock
 
@@ -15,6 +16,9 @@ def test_bluetooth_presence_discovery():
     mock_coordinator.startup = AsyncMock()
     mock_coordinator.shutdown = AsyncMock()
     mock_coordinator.start_scanning = AsyncMock()
+    mock_coordinator._async_start_scanning = AsyncMock()
+    # BluetoothPresence registers its listener from a coroutine handed to the coordinator; run it inline.
+    mock_coordinator.submit_coroutine = lambda coro, timeout=10.0: asyncio.run(coro)
     
     # Mock Bumble Device on Coordinator
     mock_device_wrapper = MagicMock()
