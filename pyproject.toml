@@ -1,34 +1,46 @@
-[tool.poetry]
+[project]
 name = "codecraftai-interop-ext-bluetooth"
+version = "1.1.0"
 description = "Code Craft AI Interop Extension for Bluetooth"
-version = "1.0.0"
-authors = ["Myron Walker <myron.walker@gmail.com>"]
 readme = "README.rst"
 license = "LicenseRef-CodeCraftAI-Dual-License"
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: Other/Proprietary License",
-    "Operating System :: POSIX"
-]
+authors = [{name = "Myron Walker", email = "myron.walker@gmail.com"}]
 keywords = [
     "python"
 ]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: POSIX",
+]
+requires-python = ">=3.10,<4.0"
+dependencies = [
+    "codecraftai-interop<2.0.0",
+    "codecraftai-landscaping<2.0.0",
+    "bumble>=0.0.223,<0.0.224",
+]
+
+[dependency-groups]
+dev = []
+
+[tool.poetry]
 packages = [{include="ccai", from="source/packages"}]
 
 [tool.poetry.dependencies]
-python = ">=3.10,<4.0"
-codecraftai-interop = { version = "<2.0.0", source = "codecraftai" }
-codecraftai-landscaping = { version = "<2.0.0", source = "codecraftai" }
-bumble = "^0.0.223"
-
-
-[tool.poetry.group.dev.dependencies]
-
+codecraftai-interop = {source = "codecraftai"}
+codecraftai-landscaping = {source = "codecraftai"}
 
 [[tool.poetry.source]]
 name = "codecraftai"
 url = "https://code-craft.ai/licensed-repository/simple/"
 priority = "supplemental"
+
+[[tool.uv.index]]
+# Same licensed index as [[tool.poetry.source]]. Listed before PyPI so that
+# codecraftai-* packages (direct and transitive) resolve from it; everything
+# else falls through to PyPI. Credentials: UV_INDEX_CODECRAFTAI_USERNAME /
+# UV_INDEX_CODECRAFTAI_PASSWORD, or `uv auth login`.
+name = "codecraftai"
+url = "https://code-craft.ai/licensed-repository/simple/"
 
 [tool.ruff.lint]
 # Deliberately narrow.  This gate exists for one reason: a bare `except:`
