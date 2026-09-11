@@ -31,6 +31,23 @@ if TYPE_CHECKING:
     from ccai.interop.bluetooth.bluetoothdevice import BluetoothDevice
 
 
+def normalize_address_hint(hint: str) -> str:
+    """
+        Normalises a device address so that hints supplied by callers compare equal to the
+        address keys produced from bumble advertisements.  bumble renders public addresses
+        with a type qualifier (``AA:BB:CC:DD:EE:FF/P``) while callers naturally supply the
+        bare address; letter case and surrounding whitespace are ignored as well.
+
+        :param hint: A device address, with or without bumble's ``/P`` qualifier.
+
+        :returns: The upper-cased bare address.
+    """
+    normalized = hint.strip().upper()
+    if normalized.endswith("/P"):
+        normalized = normalized[:-2]
+    return normalized
+
+
 class BluetoothSearchWindowState:
     """
         Enumeration describing the lifecycle of a Bluetooth search window.
@@ -220,17 +237,21 @@ class BluetoothSearchWindow:
 
             # Process hints
             if checking_for is not None:
+                # Hints are device addresses.  Compare them in normalised form so a bare
+                # address hint matches the qualified key bumble produces (see normalize_address_hint).
+                found_by_normalized_address = {}
+                for found_identifier, found_device in current_found.items():
+                    normalized_identifier = normalize_address_hint(found_identifier)
+                    found_by_normalized_address[normalized_identifier] = found_device
+
                 matched_hints = []
                 matched_devices = {}
-                used_devices = set()
-                
+
                 for nxt_hint in checking_for:
-                    # In Bluetooth, hints are likely addresses or names
-                    # For now assume hint is address
-                    if nxt_hint in current_found:
-                         matched_hints.append(nxt_hint)
-                         matched_devices[nxt_hint] = current_found[nxt_hint]
-                         used_devices.add(nxt_hint)
+                    normalized_hint = normalize_address_hint(nxt_hint)
+                    if normalized_hint in found_by_normalized_address:
+                        matched_hints.append(nxt_hint)
+                        matched_devices[nxt_hint] = found_by_normalized_address[normalized_hint]
 
                 # Update shared state atomically
                 with self._lock:
