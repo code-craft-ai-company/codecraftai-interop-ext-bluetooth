@@ -14,7 +14,6 @@ __credits__ = []
 
 from typing import Dict, List, Optional, Any
 from datetime import datetime
-import json
 
 class BluetoothDeviceEvidence:
     """

@@ -270,7 +270,6 @@ class BluetoothSearchWindow:
 
         self._wait_gate.set()
 
-        presence = self._presence_ref()
         # You might want to callback to presence here if needed, 
         # but for now we won't strictly enforce a search_window_closed callback 
         # unless we add it to Presence.
