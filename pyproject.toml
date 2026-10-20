@@ -14,8 +14,8 @@ classifiers = [
 ]
 requires-python = ">=3.10,<4.0"
 dependencies = [
-    "codecraftai-interop<2.0.0",
-    "codecraftai-landscaping<2.0.0",
+    "codecraftai-interop>=1.0.0,<2.0.0",
+    "codecraftai-landscaping>=1.0.0,<2.0.0",
     "bumble>=0.0.223,<0.0.224",
 ]
 
@@ -28,23 +28,6 @@ dev = []
 
 [tool.poetry]
 packages = [{include="ccai", from="source/packages"}]
-
-[tool.poetry.dependencies]
-codecraftai-interop = {source = "codecraftai"}
-codecraftai-landscaping = {source = "codecraftai"}
-
-[[tool.poetry.source]]
-name = "codecraftai"
-url = "https://code-craft.ai/licensed-repository/simple/"
-priority = "supplemental"
-
-[[tool.uv.index]]
-# Same licensed index as [[tool.poetry.source]]. Listed before PyPI so that
-# codecraftai-* packages (direct and transitive) resolve from it; everything
-# else falls through to PyPI. Credentials: UV_INDEX_CODECRAFTAI_USERNAME /
-# UV_INDEX_CODECRAFTAI_PASSWORD, or `uv auth login`.
-name = "codecraftai"
-url = "https://code-craft.ai/licensed-repository/simple/"
 
 [tool.ruff.lint]
 # Deliberately narrow.  This gate exists for one reason: a bare `except:`
